@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @game.user_id %>
+</p>
+
+<p>
+  <strong>Quote:</strong>
+  <%= @game.quote %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @game.author %>
+</p>
+
+<p>
+  <strong>Fake author:</strong>
+  <%= @game.fake_author %>
+</p>
+
+<p>
+  <strong>Api:</strong>
+  <%= @game.api_id %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
