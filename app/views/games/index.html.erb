@@ -1,35 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <figure class="text-center m-5">
+    <blockquote class="blockquote">
+      <p class="h2">Who said that ... ?</p>
+    </blockquote>
+    <blockquote class="blockquote h1">
+      <%= @quote%>
+    </blockquote>
+  </figure>
 
-<h1>Games</h1>
+  <%= form_with(model: @game) do |form| %>
+  <% if @game.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Quote</th>
-      <th>Author</th>
-      <th>Fake author</th>
-      <th>Api</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <ul>
+      <% @game.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
-  <tbody>
-    <% @games.each do |game| %>
-      <tr>
-        <td><%= game.user_id %></td>
-        <td><%= game.quote %></td>
-        <td><%= game.author %></td>
-        <td><%= game.fake_author %></td>
-        <td><%= game.api_id %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="field">
+    <%= form.hidden_field  :quote %>
+    <%= form.text_field  :author %>
+    <%= form.hidden_field :fake_author %>
+    <%= form.hidden_field :api_id %>
+    <%= form.hidden_field :chosen_author %>
+    <%= form.hidden_field :score%>
+  </div>
+  <blockquote class="blockquote">
+   Select one:
+  </blockquote><br />
+  <div class="field text-center">
+    <%= form.radio_button :chosen_author, @all_author[0], :onclick => "this.form.submit()", id: "flexRadioDefault1", style: "display: none"%>
+    <label class="btn btn-outline-success" for="flexRadioDefault1">
+      <%= @all_author[0]%>
+    </label>
+    <%= form.radio_button :chosen_author, @all_author[1], :onclick => "this.form.submit()", id: "flexRadioDefault2", style: "display: none" %>
+    <label class="btn btn-outline-success" for="flexRadioDefault2">
+      <%= @all_author[1]%>
+    </label>
+    <%= form.radio_button :chosen_author, @all_author[2], :onclick => "this.form.submit()", id: "flexRadioDefault3", style: "display: none" %>
+    <label class="btn btn-outline-success" for="flexRadioDefault3">
+      <%= @all_author[2]%>
+    </label>
+  </div>
 
-<br>
+  <% end %>
 
-<%= link_to 'New Game', new_game_path %>
+</div>

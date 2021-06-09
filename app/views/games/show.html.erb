@@ -1,29 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="container text-center">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @game.user_id %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @game.user_id %>
+  </p>
 
-<p>
-  <strong>Quote:</strong>
-  <%= @game.quote %>
-</p>
+  <p>
+    <strong>Quote:</strong>
+    <%= @game.quote %>
+  </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @game.author %>
-</p>
+  <p>
+    <strong>Author:</strong>
+    <%= @game.author %>
+  </p>
 
-<p>
-  <strong>Fake author:</strong>
-  <%= @game.fake_author %>
-</p>
+  <p>
+    <strong>Fake author:</strong>
+    <%= @game.fake_author %>
+  </p>
 
-<p>
-  <strong>Api:</strong>
-  <%= @game.api_id %>
-</p>
+  <p>
+    <strong>Api:</strong>
+    <%= @game.api_id %>
+  </p>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+  <p>
+    <strong>Chosen author:</strong>
+    <%= @game.chosen_author %>
+  </p>
+
+  <p>
+    <strong>Score:</strong>
+    <%= @game.score %>
+  </p>
+
+  <%= link_to games_path, class: " btn btn-outline-dark" do %>
+  <i class="fa fa-repeat" aria-hidden="true"></i></i> Try again
+<% end %>
+</div>
