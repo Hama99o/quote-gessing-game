@@ -9,6 +9,7 @@ AllCops:
   Include:
   - app/models/*.rb
   - 'app/controllers/**/*'
+  - 'app/service/**/*'
   - 'spec/controllers/**/*'
   # - '**/*.rb'
   # - '**/*.gemfile'
