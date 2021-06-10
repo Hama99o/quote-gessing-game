@@ -1,52 +1,30 @@
+<%= javascript_pack_tag "index" %>
 <div class="container">
-  <figure class="text-center m-5">
-    <blockquote class="blockquote">
-      <p class="h2">Who said that ... ?</p>
+  <div id="myQuestion">
+    <figure class="text-center m-5">
+      <blockquote class="blockquote">
+        <p class="h2">Who said that ...?</p>
+      </blockquote>
+      <blockquote class="blockquote h1">
+        <%= @game.quote %>
+        <%= @game.author %>
+      </blockquote>
+    </figure>
+
+    <blockquote class="blockquote h3 text-center">
+      Choose the correct author <br/>
+      Reply Fast!!
     </blockquote>
-    <blockquote class="blockquote h1">
-      <%= @quote%>
-    </blockquote>
-  </figure>
+  </div>
 
   <%= form_with(model: @game) do |form| %>
-  <% if @game.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(game.errors.count, "error") %> prohibited this game from being saved:</h2>
-
-    <ul>
-      <% @game.errors.each do |error| %>
-      <li><%= error.full_message %></li>
+  <div class="field text-center" >
+    <% @all_authors.each do |author| %>
+        <%= form.radio_button :chosen_author, author, :onclick => "this.form.submit()", id: "flexRadioDefault1", style: "display: none"%>
+        <label class="btn btn-outline-success" for="flexRadioDefault1">
+          <%= author %>
+        </label>
       <% end %>
-    </ul>
-  </div>
+    </div>
   <% end %>
-
-  <div class="field">
-    <%= form.hidden_field  :quote %>
-    <%= form.text_field  :author %>
-    <%= form.hidden_field :fake_author %>
-    <%= form.hidden_field :api_id %>
-    <%= form.hidden_field :chosen_author %>
-    <%= form.hidden_field :score%>
-  </div>
-  <blockquote class="blockquote">
-   Select one:
-  </blockquote><br />
-  <div class="field text-center">
-    <%= form.radio_button :chosen_author, @all_author[0], :onclick => "this.form.submit()", id: "flexRadioDefault1", style: "display: none"%>
-    <label class="btn btn-outline-success" for="flexRadioDefault1">
-      <%= @all_author[0]%>
-    </label>
-    <%= form.radio_button :chosen_author, @all_author[1], :onclick => "this.form.submit()", id: "flexRadioDefault2", style: "display: none" %>
-    <label class="btn btn-outline-success" for="flexRadioDefault2">
-      <%= @all_author[1]%>
-    </label>
-    <%= form.radio_button :chosen_author, @all_author[2], :onclick => "this.form.submit()", id: "flexRadioDefault3", style: "display: none" %>
-    <label class="btn btn-outline-success" for="flexRadioDefault3">
-      <%= @all_author[2]%>
-    </label>
-  </div>
-
-  <% end %>
-
 </div>
