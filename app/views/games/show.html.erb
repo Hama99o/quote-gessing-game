@@ -1,42 +1,24 @@
-<div class="container text-center">
-  <p id="notice"><%= notice %></p>
-
-  <p>
-    <strong>User:</strong>
-    <%= @game.user_id %>
-  </p>
-
-  <p>
-    <strong>Quote:</strong>
-    <%= @game.quote %>
-  </p>
-
-  <p>
-    <strong>Author:</strong>
-    <%= @game.author %>
-  </p>
-
-  <p>
-    <strong>Fake author:</strong>
-    <%= @game.fake_author %>
-  </p>
-
-  <p>
-    <strong>Api:</strong>
-    <%= @game.api_id %>
-  </p>
-
-  <p>
-    <strong>Chosen author:</strong>
-    <%= @game.chosen_author %>
-  </p>
-
-  <p>
-    <strong>Score:</strong>
-    <%= @game.score %>
-  </p>
-
-  <%= link_to games_path, class: " btn btn-outline-dark" do %>
-  <i class="fa fa-repeat" aria-hidden="true"></i></i> Try again
-<% end %>
+<div class="container">
+  <div class="container m-5 text-center" id="myResult" >
+    <figure class="text-center m-5">
+      <% if @game.score %>
+        <blockquote class="blockquote">
+          <p class="h2">Correct <i class="fa fa-check" aria-hidden="true"></i></p>
+        </blockquote>
+        <blockquote class="blockquote h1">
+          <p></p>
+        </blockquote>
+      <% else %>
+        <blockquote class="blockquote">
+          <p class="h2">No!</p>
+        </blockquote>
+        <blockquote class="blockquote h1">
+          <p>The real answer was <%= @game.author%></p>
+        </blockquote>
+      <% end %>
+      </figure>
+    <%= link_to games_path, class: " btn btn-outline-dark" do %>
+    <i class="fa fa-repeat" aria-hidden="true"></i> Try again
+    <% end %>
+  </div>
 </div>
