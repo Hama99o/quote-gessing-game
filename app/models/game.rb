@@ -1,10 +1,10 @@
 class Game < ApplicationRecord
   include Hashid::Rails
-  before_save :set_default_val
+  before_save :set_has_guessed
 
   # validates_uniqueness_of :api_id
-  def set_default_val
-    self.score = author == chosen_author
+  def set_has_guessed
+    self.has_guessed = author == chosen_author if chosen_author.present?
   end
 
   def self.generate_game
@@ -21,5 +21,10 @@ class Game < ApplicationRecord
                   fake_authors: fake_authors,
                   api_id: quote_id
                 })
+  end
+
+  def get_all_authors
+    fake_authors = self.fake_authors
+    @all_authors = fake_authors.push(self.author).shuffle
   end
 end

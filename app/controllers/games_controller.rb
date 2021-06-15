@@ -1,10 +1,10 @@
 class GamesController < ApplicationController
   before_action :game_generate, only: [:index]
-  before_action :set_game, only: [:show, :update]
+  before_action :set_game, only: [:result, :update]
 
   def index; end
 
-  def show; end
+  def result; end
 
   # PATCH/PUT /games/1 or /games/1.json
   def update
@@ -22,8 +22,6 @@ class GamesController < ApplicationController
 
   def game_generate
     @game ||= Game.generate_game
-    @fake_authors = JSON.parse(@game.fake_authors)
-    @all_authors = @fake_authors.push(@game.author).shuffle
   end
 
   def game_params
