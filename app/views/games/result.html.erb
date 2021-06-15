@@ -1,7 +1,7 @@
 <div class="container">
   <div class="container m-5 text-center" id="myResult" >
     <figure class="text-center m-5">
-      <% if @game.score %>
+      <% if @game.has_guessed %>
         <blockquote class="blockquote">
           <p class="h2">Correct <i class="fa fa-check" aria-hidden="true"></i></p>
         </blockquote>
