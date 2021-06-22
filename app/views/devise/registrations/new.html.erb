@@ -1,31 +1,36 @@
 <div class="container">
   <h2>Sign up</h2>
   <div class="form-group mt-3">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field my-3">
-      <%= f.label :email, for: "exampleInputEmail1" %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "form-control", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
-    </div>
+      <div class="field my-3">
+        <%= f.label :name, for: "exampleInputName1" %><br />
+        <%= f.text_field :name, autocomplete: "name",  class: "form-control", id: "exampleInputName", ariaDescribedby: "nameHelp", placeholder: "Enter your Name" %>
+      </div>
 
-    <div class="field my-3">
-      <%= f.label :password, for: "exampleInputPassword1" %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id: "exampleInputPassword1", placeholder: "Password" %>
-    </div>
+      <div class="field my-3">
+        <%= f.label :email, for: "exampleInputEmail1" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "form-control", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
+      </div>
 
-    <div class="field my-3">
-      <%= f.label :password_confirmation, for: "exampleInputPassword1" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id: "exampleInputPassword1", placeholder: "Password" %>
-    </div>
+      <div class="field my-3">
+        <%= f.label :password, for: "exampleInputPassword1" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id: "exampleInputPassword1", placeholder: "Password" %>
+      </div>
 
-    <div class="actions my-3">
-      <%= f.submit "Sign up", class: "btn btn-primary" %>
-    </div>
-  <% end %>
+      <div class="field my-3">
+        <%= f.label :password_confirmation, for: "exampleInputPassword1" %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id: "exampleInputPassword1", placeholder: "Password" %>
+      </div>
+
+      <div class="actions my-3">
+        <%= f.submit "Sign up", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
   <%= render "devise/shared/links" %>
 </div>
