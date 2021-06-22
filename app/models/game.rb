@@ -16,11 +16,11 @@ class Game < ApplicationRecord
     quote_id = random_quote['_id']
 
     Game.create({
-                  quote: quote,
-                  author: author,
-                  fake_authors: fake_authors,
-                  api_id: quote_id
-                })
+      quote: quote,
+      author: author,
+      fake_authors: fake_authors,
+      api_id: quote_id
+    })
   end
 
   def get_all_authors
