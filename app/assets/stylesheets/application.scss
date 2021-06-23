@@ -21,11 +21,17 @@
    .responsive-text {
     font-size: 12px;
    }
+   .hidden-footer {
+        display: none;
+   }
  }
 
  @media only screen and (max-width: 900px) {
    .responsive-text {
     font-size: 14px;
+   }
+   .hidden-footer {
+        display: none;
    }
  }
 
@@ -33,5 +39,8 @@
  @media only screen and (max-width: 390px) {
    .responsive-text {
     font-size: 8px;
+   }
+   .hidden-footer {
+        display: none;
    }
  }
