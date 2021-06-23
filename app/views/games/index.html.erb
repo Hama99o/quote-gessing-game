@@ -19,7 +19,9 @@
   <%= form_with(model: @game) do |form| %>
   <div class="field text-center mt-3" >
     <% @game.get_all_authors.each do |author| %>
-        <%= form.label  author, class: "btn btn-outline-success", for: author %>
+        <%= form.label  author, class: "btn btn-outline-success", for: author do %>
+          <i class="fas fa-check"></i> <%= author %>
+        <% end %>
         <%= form.radio_button :chosen_author, author, :onclick => "this.form.submit()", id: author, style: "display: none"%>
       <% end %>
     </div>
