@@ -5,13 +5,13 @@
 
       <div class="field responsive-text">
         <%= f.label :email, for: "exampleInputEmail1" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "my-3 form-control responsive-text", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "form-control responsive-text", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
 
       <div class="field responsive-text">
         <%= f.label :password, for: "exampleInputPassword1" %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class:"my-3 form-control responsive-text", id: "exampleInputPassword1", placeholder: "Password" %>
+        <%= f.password_field :password, autocomplete: "current-password", class:"form-control responsive-text", id: "exampleInputPassword1", placeholder: "Password" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
@@ -22,7 +22,7 @@
       <% end %>
 
       <div class="actions responsive-text">
-        <%= f.submit "Log in", class: "btn mb-2 btn-primary responsive-text" %>
+        <%= f.submit "Log in", class: "btn btn-primary responsive-text" %>
       </div>
     <% end %>
   </div>
