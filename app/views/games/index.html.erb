@@ -7,18 +7,17 @@
       </blockquote>
       <blockquote class="blockquote h1">
         <%= @game.quote %>
-        <%= @game.author %>
       </blockquote>
     </figure>
 
     <blockquote class="blockquote h3 text-center">
-      Choose the correct author <br/>
+      Choose the correct author <br/><br/>
       Reply Fast!!
     </blockquote>
   </div>
 
   <%= form_with(model: @game) do |form| %>
-  <div class="field text-center" >
+  <div class="field text-center mt-3" >
     <% @game.get_all_authors.each do |author| %>
         <%= form.label  author, class: "btn btn-outline-success", for: author %>
         <%= form.radio_button :chosen_author, author, :onclick => "this.form.submit()", id: author, style: "display: none"%>
