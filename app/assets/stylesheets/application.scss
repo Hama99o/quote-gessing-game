@@ -16,3 +16,22 @@
  @import "bootstrap";
  @import "font-awesome-sprockets";
  @import "font-awesome";
+
+ @media only screen and (max-width: 600px) {
+   .responsive-text {
+    font-size: 12px;
+   }
+ }
+
+ @media only screen and (max-width: 900px) {
+   .responsive-text {
+    font-size: 14px;
+   }
+ }
+
+
+ @media only screen and (max-width: 300px) {
+   .responsive-text {
+    font-size: 8px;
+   }
+ }
