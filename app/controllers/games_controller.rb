@@ -25,6 +25,6 @@ class GamesController < ApplicationController
   end
 
   def game_params
-    params.require(:game).permit(:chosen_author).merge(user_id: current_user.id )
+    params.require(:game).permit(:chosen_author).merge(user_id: current_user.id)
   end
 end
