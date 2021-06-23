@@ -4,13 +4,13 @@
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field my-3">
+    <div class="field my-3 responsive-text">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "my-3 form-control", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "my-3 form-control responsive-text", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+      <%= f.submit "Send me reset password instructions", class: "btn btn-primary responsive-text" %>
     </div>
   <% end %>
 

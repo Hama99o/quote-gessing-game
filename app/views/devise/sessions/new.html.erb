@@ -3,26 +3,26 @@
   <div class="form-group mt-3">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <div class="field">
+      <div class="field responsive-text">
         <%= f.label :email, for: "exampleInputEmail1" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "my-3 form-control", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "my-3 form-control responsive-text", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
 
-      <div class="field">
+      <div class="field responsive-text">
         <%= f.label :password, for: "exampleInputPassword1" %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class:"my-3 form-control", id: "exampleInputPassword1", placeholder: "Password" %>
+        <%= f.password_field :password, autocomplete: "current-password", class:"my-3 form-control responsive-text", id: "exampleInputPassword1", placeholder: "Password" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="form-check">
+        <div class="form-check responsive-text">
           <%= f.check_box :remember_me, class: "form-check-input", id: "exampleCheck1" %>
           <%= f.label :remember_me, class: "form-check-label", for: "exampleCheck1" %>
         </div>
       <% end %>
 
-      <div class="actions">
-        <%= f.submit "Log in", class: "btn btn-primary my-3" %>
+      <div class="actions responsive-text">
+        <%= f.submit "Log in", class: "btn btn-primary my-3 responsive-text" %>
       </div>
     <% end %>
   </div>
