@@ -4,6 +4,8 @@ class GamesController < ApplicationController
 
   def index; end
 
+  def home; end
+
   def result; end
 
   # PATCH/PUT /games/1 or /games/1.json
