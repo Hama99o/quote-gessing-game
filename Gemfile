@@ -27,7 +27,7 @@ gem "hashid-rails", "~> 1.0"
 # gem 'image_processing', '~> 1.2'
 gem 'faraday', '~> 0.9.2'
 gem 'bootstrap', '~> 5.0.1'
-gem "font-awesome-rails"
+gem 'font-awesome-sass', '~> 5.15.1'
 gem 'jquery-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

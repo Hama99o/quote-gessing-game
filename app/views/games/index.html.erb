@@ -1,26 +1,27 @@
 <%= javascript_pack_tag "index" %>
 <div class="container">
   <div id="myQuestion">
-    <figure class="text-center m-5">
-      <blockquote class="blockquote">
+    <figure class="text-center mt-3">
+      <blockquote class="blockquote responsive-text">
         <p class="h2">Who said that ...?</p>
       </blockquote>
-      <blockquote class="blockquote h1">
+      <blockquote class="blockquote h1 responsive-text">
         <%= @game.quote %>
-        <%= @game.author %>
       </blockquote>
     </figure>
 
-    <blockquote class="blockquote h3 text-center">
-      Choose the correct author <br/>
+    <blockquote class="blockquote h3 text-center responsive-text">
+      Choose the correct author <br/><br/>
       Reply Fast!!
     </blockquote>
   </div>
 
   <%= form_with(model: @game) do |form| %>
-  <div class="field text-center" >
+  <div class="field text-center mt-3" >
     <% @game.get_all_authors.each do |author| %>
-        <%= form.label  author, class: "btn btn-outline-success", for: author %>
+        <%= form.label  author, class: "btn btn-outline-success m-2 responsive-text", for: author do %>
+          <%= author %>
+        <% end %>
         <%= form.radio_button :chosen_author, author, :onclick => "this.form.submit()", id: author, style: "display: none"%>
       <% end %>
     </div>

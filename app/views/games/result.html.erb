@@ -1,24 +1,24 @@
 <div class="container">
-  <div class="container m-5 text-center" id="myResult" >
+  <div class="m-5 text-center" id="myResult" >
     <figure class="text-center m-5">
       <% if @game.has_guessed %>
         <blockquote class="blockquote">
-          <p class="h2">Correct <i class="fa fa-check" aria-hidden="true"></i></p>
+          <p class="h2 text-success mb-5">Correct <i class="fa fa-check" aria-hidden="true"></i></p>
         </blockquote>
-        <blockquote class="blockquote h1">
-          <p></p>
-        </blockquote>
+        <%= link_to games_path, class: " btn btn-outline-success" do %>
+        <i class="fa fa-repeat" aria-hidden="true"></i> Try another
+        <% end %>
       <% else %>
         <blockquote class="blockquote">
           <p class="h2">No!</p>
         </blockquote>
-        <blockquote class="blockquote h1">
+        <blockquote class="blockquote mb-5 h1">
           <p>The real answer was <%= @game.author%></p>
         </blockquote>
+        <%= link_to games_path, class: " btn btn-outline-success" do %>
+        <i class="fa fa-repeat " aria-hidden="true"></i> Try again
+        <% end %>
       <% end %>
       </figure>
-    <%= link_to games_path, class: " btn btn-outline-dark" do %>
-    <i class="fa fa-repeat" aria-hidden="true"></i> Try again
-    <% end %>
   </div>
 </div>
