@@ -1,0 +1,51 @@
+<% games ||= [] %>
+
+<div>
+  <%= paginate games %>
+</div>
+
+<div class="table-responsive mt-3">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Quote</th>
+        <th scope="col">Chosen author</th>
+        <th scope="col">Fake authors</th>
+        <th scope="col">Correct author</th>
+        <th scope="col">created_at</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody id="game_record">
+      <% games.each do |game| %>
+        <tr class="user_row
+            <%= if !game.has_guessed
+              "table-warning"
+            else
+              "table-success"
+            end  %> ">
+          <td>
+            <%= game.quote %>
+          </td>
+          <td>
+            <%= game.chosen_author %>
+          </td>
+          <td>
+            <%= game.fake_authors.to_sentence %>
+          </td>
+          <td>
+            <%= game.author %>
+          </td>
+          <td>
+            <%= time_ago_in_words(game.created_at) %>
+          </td>
+          <td></td>
+          <td>
+            <i class="<%= game.has_guessed ? "fas fa-check fa-2x" : "fas fa-times fa-2x" %>"></i>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

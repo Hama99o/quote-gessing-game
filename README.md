@@ -13,7 +13,6 @@ bundle install
 ## Ruby version
   '2.5.7'
 ## System dependencies
-* ruby 2.5.1
 * postgresql
 
 ## Run
@@ -25,11 +24,11 @@ bundle install
 ```sh
   sudo su  postgres
   psql
->  create ROLE postgres;
+>  create ROLE your_computer_name;
   #alter role with login
->  ALTER ROLE "postgres" WITH LOGIN;
+>  ALTER ROLE "your_computer_name" WITH LOGIN;
   #alter rolle with creartdb
->  ALTER USER postgres CREATEDB;
+>  ALTER USER your_computer_name CREATEDB;
 ```
  Create the database
 ```sh
@@ -38,6 +37,10 @@ bundle install
  Run the migration files
 ```sh
   rake db:migrate
+```
+## Install webpacker
+```sh
+  bundle exec rake webpacker:instal
 ```
   Using rubocop
   Finding indentation error run

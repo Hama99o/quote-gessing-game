@@ -1,7 +1,8 @@
 <div class="container">
 
+  <h2 class="mb-3">Edit</h2>
   <div class="mb-4">
-    <%= link_to :back, class: "btn btn-outline-secondary responsive-text" do %>
+    <%= link_to profile_path, class: "btn btn-outline-secondary responsive-text" do %>
       <i class="fas fa-arrow-circle-left"></i> Back
     <% end %>
     <%= link_to  registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "mx-3 btn btn-danger responsive-text ", id: "user_destroy" do %>
@@ -15,12 +16,12 @@
 
       <div class="field  my-3 responsive-text">
         <%= f.label :name, for: "exampleInputName1" %><br />
-        <%= f.text_field :name,  class: "form-control responsive-text", placeholder: "Enter your name" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: 'name', class: "form-control responsive-text", placeholder: "Enter your name" %>
       </div>
 
       <div class="field responsive-text">
         <%= f.label :email, for: "exampleInputEmail1" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "form-control responsive-text", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
+        <%= f.email_field :email, autocomplete: "email",  class: "form-control responsive-text", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -43,11 +44,11 @@
 
       <div class="field my-3 responsive-text">
         <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control responsive-text", id: "exampleInputPassword1", placeholder: "Password", id: "exampleInputPassword1" %>
+        <%= f.password_field :current_password, autocomplete: "current-password", class:"form-control responsive-text", id: "exampleInputPassword1", placeholder: "Password" %>
       </div>
 
       <div class="actions my-3">
-        <%= f.submit "Update", class: "btn btn-primary responsive-text" %>
+        <%= f.submit "Update", class: "btn btn-primary responsive-text", id: 'save_user' %>
       </div>
     <% end %>
 

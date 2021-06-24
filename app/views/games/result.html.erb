@@ -6,7 +6,7 @@
           <p class="h2 text-success mb-5">Correct <i class="fa fa-check" aria-hidden="true"></i></p>
         </blockquote>
         <%= link_to games_path, class: " btn btn-outline-success" do %>
-        <i class="fa fa-repeat" aria-hidden="true"></i> Try another
+          <i class="fas fa-redo"></i> Try another
         <% end %>
       <% else %>
         <blockquote class="blockquote">
@@ -16,9 +16,9 @@
           <p>The real answer was <%= @game.author%></p>
         </blockquote>
         <%= link_to games_path, class: " btn btn-outline-success" do %>
-        <i class="fa fa-repeat " aria-hidden="true"></i> Try again
+          <i class="fas fa-redo"></i> Try again
         <% end %>
       <% end %>
-      </figure>
+    </figure>
   </div>
 </div>

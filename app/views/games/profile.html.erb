@@ -1,0 +1,52 @@
+<div class="container">
+
+  <h1 class="mb-4">My Profile</h1>
+
+  <div class="mb-4">
+    <%= link_to games_path, class: "btn btn-outline-secondary responsive-text" do %>
+      <i class="fas fa-arrow-circle-left"></i> Back
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to edit_user_registration_path, class: "mx-3 btn btn-info responsive-text" do %>
+        <i class="fas fa-edit"></i> Edit
+      <% end %>
+    <% else %>
+      <%= link_to new_user_registration_path, class: 'mx-3 btn btn-info responsive-text' do %>
+        <i class="fas fa-user-plus"></i> Register your account
+      <% end %>
+    <% end %>
+  </div>
+
+  <% if !user_signed_in? %>
+    <div>
+      <b> Note:</b>
+      <p>When you sign up, your record will automatically send to your new account.</p>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-12 col-md-12">
+      <ul class="list-group user">
+        <li class="list-group-item list-group-item-action list-group-item-light responsive-text">
+          <b>Name : </b><span><%= @person.name %></span>
+        </li>
+        <li class="list-group-item list-group-item-action list-group-item-info responsive-text">
+          <b>Email : </b><span><%= @person.email %></span>
+        </li>
+        <li class="list-group-item list-group-item-action list-group-item-primary responsive-text">
+          <b>Correct Answers : </b><span><%= @person.correct_answers_count %></span>
+        </li>
+        <li class="list-group-item list-group-item-action list-group-item-warning responsive-text">
+          <b>Wrong Answers : </b><span><%= @person.wrong_answer_count %></span>
+        </li>
+        <li class="list-group-item list-group-item-action list-group-item-success responsive-text">
+          <b>Score  Percentage : </b><span><%= @person.score_percent %></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= render 'game_table' , games: @games %>
+  </div>
+</div>

@@ -53,6 +53,7 @@ Rails.application.configure do
   config.active_support.disallowed_deprecation_warnings = []
 
   # Raises error for missing translations.
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
   # config.i18n.raise_on_missing_translations = true
 
   # Annotate rendered view with file names.
