@@ -4,7 +4,12 @@ class GamesController < ApplicationController
 
   def index; end
 
-  def home; end
+  def home
+    random_string = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
+    cookies[:guest_id] = {
+      value: random_string
+    }
+  end
 
   def result; end
 
