@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   get 'game/:id/result', controller: 'games', action: :result, as: 'game'
   patch 'game/:id/result', controller: 'games', action: :update
 
-  get 'profile', controller: 'users', action: :show, as: 'profile'
+  get 'profile', controller: 'games', action: :profile, as: 'profile'
 end

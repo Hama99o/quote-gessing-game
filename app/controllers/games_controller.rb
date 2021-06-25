@@ -4,14 +4,16 @@ class GamesController < ApplicationController
 
   def index; end
 
-  def home
-    random_string = (0...50).map { ('a'..'z').to_a[rand(26)] }.join
-    cookies[:guest_id] = {
-      value: random_string
-    }
-  end
+  def home; end
 
   def result; end
+
+  def profile
+    @current_user = @person
+    @currect_answer = Game.where("person_id  = #{@current_user.id} AND has_guessed = true").count
+    @wrong_answer = Game.where("person_id  = #{@current_user.id} AND has_guessed = false").count
+    @score = (@currect_answer - @wrong_answer) * 10
+  end
 
   # PATCH/PUT /games/1 or /games/1.json
   def update
@@ -28,10 +30,10 @@ class GamesController < ApplicationController
   end
 
   def game_generate
-    @game ||= Game.generate_game
+    @game ||= Game.generate_game(@person.id, @person_type)
   end
 
   def game_params
-    params.require(:game).permit(:chosen_author).merge(user_id: current_user.id)
+    params.require(:game).permit(:chosen_author)
   end
 end
