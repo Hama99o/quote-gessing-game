@@ -1,0 +1,36 @@
+<div class="container">
+
+  <h1 class="mb-4">My Profile</h1>
+
+  <div class="mb-4">
+    <%= link_to games_path, class: "btn btn-outline-secondary responsive-text" do %>
+      <i class="fas fa-arrow-circle-left"></i> Back
+    <% end %>
+    <% if user_signed_in? %>
+      <%= link_to edit_user_registration_path, class: "mx-3 btn btn-info responsive-text" do %>
+        <i class="fas fa-edit"></i> Edit
+      <% end %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-12">
+      <ul class="list-group user">
+        <li class="list-group-item list-group-item-light responsive-text">
+          <b>Name : </b><span><%= @current_user.name %></span>
+        </li>
+        <li class="list-group-item list-group-item-info responsive-text">
+          <b>Email : </b><span><%= @current_user.email %></span>
+        </li>
+        <li class="list-group-item list-group-item-primary responsive-text">
+          <b>Currect Answers : </b><span><%= @currect_answer %></span>
+        </li>
+        <li class="list-group-item list-group-item-warning responsive-text">
+          <b>Wrong Answers : </b><span><%= @wrong_answer %></span>
+        </li>
+        <li class="list-group-item list-group-item-success responsive-text">
+          <b>Total Score : </b><span><%= @score %></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
