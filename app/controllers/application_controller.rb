@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_guest_cookies
+  before_action :set_guest_sessions
   before_action :check_user
 
   protected
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
   end
 
-  def set_guest_cookies
+  def set_guest_sessions
     if !session[:guest_slug]
       guest_user ||= GuestUser.generate_guest_user
       session[:guest_slug] = {
