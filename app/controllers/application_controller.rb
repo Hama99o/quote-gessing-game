@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   def set_guest_cookies
-    if !cookies[:guest_slug]
+    if !session[:guest_slug]
       guest_user ||= GuestUser.generate_guest_user
-      cookies[:guest_slug] = {
+      session[:guest_slug] = {
         value: guest_user.slug
       }
     end
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       @person = current_user
       @person_type = 'registered user'
     else
-      @person = GuestUser.find_by(slug: cookies[:guest_slug] )
+      @person = GuestUser.find_by(slug: session[:guest_slug]["value"] )
       @person_type = 'guest user'
     end
   end
