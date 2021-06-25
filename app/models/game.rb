@@ -1,13 +1,14 @@
 class Game < ApplicationRecord
   include Hashid::Rails
   before_save :set_has_guessed
+  # belongs_to :person, polymorphic: true
 
   # validates_uniqueness_of :api_id
   def set_has_guessed
     self.has_guessed = author == chosen_author if chosen_author.present?
   end
 
-  def self.generate_game
+  def self.generate_game(user_id, user_type)
     quote_api = QuoteApi.new
     random_quote = quote_api.random_quote
     author = random_quote['quoteAuthor']
@@ -19,7 +20,9 @@ class Game < ApplicationRecord
       quote: quote,
       author: author,
       fake_authors: fake_authors,
-      api_id: quote_id
+      api_id: quote_id,
+      person_id: user_id,
+      person_type: user_type
     })
   end
 
