@@ -12,7 +12,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    User.merge_game_record(session[:guest_slug]["value"], current_user)
+    if session[:guest_slug]
+      User.merge_game_record(session[:guest_slug]["value"], current_user)
+    end
   end
 
   # GET /resource/edit
