@@ -23,10 +23,8 @@ class ApplicationController < ActionController::Base
   def check_user
     if user_signed_in?
       @person = current_user
-      @person_type = 'registered user'
     else
       @person = GuestUser.find_by(slug: session[:guest_slug]["value"] )
-      @person_type = 'guest user'
     end
   end
 end
