@@ -9,9 +9,13 @@ class GamesController < ApplicationController
   def result; end
 
   def profile
-    @correct_answer = @person.games.where(has_guessed: true).count
-    @wrong_answer = @person.games.where(has_guessed: false).count
-    @score = (@correct_answer - @wrong_answer) * 10
+    if @person
+      @correct_answer = @person.games.where(has_guessed: true).count
+      @wrong_answer = @person.games.where(has_guessed: false).count
+      @score = (@correct_answer - @wrong_answer) * 10
+    else
+      redirect_to home_path
+    end
   end
 
   # PATCH/PUT /games/1 or /games/1.json
