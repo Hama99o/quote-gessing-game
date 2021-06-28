@@ -6,8 +6,10 @@
     <%= link_to games_path, class: "btn btn-outline-secondary responsive-text" do %>
       <i class="fas fa-arrow-circle-left"></i> Back
     <% end %>
+    <% if user_signed_in? %>
       <%= link_to edit_user_registration_path, class: "mx-3 btn btn-info responsive-text" do %>
         <i class="fas fa-edit"></i> Edit
+      <% end %>
     <% end %>
   </div>
   <div class="row">
