@@ -9,10 +9,9 @@ class GamesController < ApplicationController
   def result; end
 
   def profile
-    @current_user = @person
-    @currect_answer = Game.where("person_id  = #{@current_user.id} AND has_guessed = true").count
-    @wrong_answer = Game.where("person_id  = #{@current_user.id} AND has_guessed = false").count
-    @score = (@currect_answer - @wrong_answer) * 10
+    @correct_answer = @person.games.where(has_guessed: true).count
+    @wrong_answer = @person.games.where(has_guessed: false).count
+    @score = (@correct_answer - @wrong_answer) * 10
   end
 
   # PATCH/PUT /games/1 or /games/1.json
@@ -30,7 +29,7 @@ class GamesController < ApplicationController
   end
 
   def game_generate
-    @game ||= Game.generate_game(@person.id, @person_type)
+    @game ||= Game.generate_game(@person)
   end
 
   def game_params
