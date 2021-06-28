@@ -29,7 +29,11 @@ class GamesController < ApplicationController
   end
 
   def game_generate
-    @game ||= Game.generate_game(@person)
+    if @person
+      @game ||= Game.generate_game(@person)
+    else
+      redirect_to home_path
+    end
   end
 
   def game_params
