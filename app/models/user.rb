@@ -1,6 +1,11 @@
-class User < Person
+require 'person'
+
+class User < ApplicationRecord
+  include Person
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  has_many :games, as: :person
 
   def self.merge_game_record(guest_slug, current_user)
     guest_user = GuestUser.find_by(slug: guest_slug )

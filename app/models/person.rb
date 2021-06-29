@@ -1,6 +1,4 @@
-class Person < ApplicationRecord
-  has_many :games, as: :person
-
+module Person
   def resolved_games
     games.where.not(chosen_author: nil).order(created_at: :desc)
   end
