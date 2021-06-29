@@ -1,3 +1,5 @@
+<%= games ||= [] %>
+
 <div class="table-responsive">
   <table class="table mt-3 table-striped table-hover">
     <thead class="thead-light ">
@@ -12,28 +14,28 @@
       </tr>
     </thead>
     <tbody id="game_record">
-      <% @quotes.each do |quote| %>
-      <tr>
-        <td class="p-0">
-          <%= quote.quote %>
-        </td>
-      <td class="p-0">
-        <%= quote.chosen_author %>
-      </td>
-      <td class="p-0">
-        <% quote.fake_authors.each do |author| %>
-        <%= "#{author}" %>
-        <% end %>
-      </td>
-      <td class="p-0">
-        <%= quote.author %>
-      </td>
-      <td></td>
-      <td class="p-0">
-        <i class="<%= quote.has_guessed ? "fas fa-check fa-2x" : "fas fa-times fa-2x" %>"></i>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% games.each do |quote| %>
+        <tr>
+          <td class="p-0">
+            <%= quote.quote %>
+          </td>
+          <td class="p-0">
+            <%= quote.chosen_author %>
+          </td>
+          <td class="p-0">
+            <% quote.fake_authors.each do |author| %>
+            <%= "#{author}" %>
+            <% end %>
+          </td>
+          <td class="p-0">
+            <%= quote.author %>
+          </td>
+          <td></td>
+          <td class="p-0">
+            <i class="<%= quote.has_guessed ? "fas fa-check fa-2x" : "fas fa-times fa-2x" %>"></i>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
