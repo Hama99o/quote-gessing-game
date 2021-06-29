@@ -9,12 +9,7 @@ class GamesController < ApplicationController
   def result; end
 
   def profile
-    if @person
-      @quotes = @person.games.where.not(chosen_author: nil).order(created_at: :desc)
-      @correct_answer = @person.games.where(has_guessed: true).count
-      @wrong_answer = @person.games.where(has_guessed: false).count
-      @score = (@correct_answer - @wrong_answer) * 10
-    else
+    unless @person
       redirect_to home_path
     end
   end

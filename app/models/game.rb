@@ -8,6 +8,8 @@ class Game < ApplicationRecord
     self.has_guessed = author == chosen_author if chosen_author.present?
   end
 
+  @quotes = @person.games.where.not(chosen_author: nil).order(created_at: :desc)
+
   def self.generate_game(person)
     quote_api = QuoteApi.new
     random_quote = quote_api.random_quote

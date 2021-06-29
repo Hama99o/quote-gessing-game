@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class User < Person
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
@@ -8,7 +8,6 @@ class User < ApplicationRecord
       .update_all(person_type: current_user.class.to_s, person_id: current_user.id)
   end
 
-  has_many :games, as: :person
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

@@ -22,13 +22,13 @@
           <b>Email : </b><span><%= @person.email %></span>
         </li>
         <li class="list-group-item list-group-item-primary responsive-text">
-          <b>Currect Answers : </b><span><%= @correct_answer %></span>
+          <b>Currect Answers : </b><span><%= @person.correct_answers_count %></span>
         </li>
         <li class="list-group-item list-group-item-warning responsive-text">
-          <b>Wrong Answers : </b><span><%= @wrong_answer %></span>
+          <b>Wrong Answers : </b><span><%= @person.wrong_answers_count %></span>
         </li>
         <li class="list-group-item list-group-item-success responsive-text">
-          <b>Total Score : </b><span><%= @score %></span>
+          <b>Total Score : </b><span><%= @person.score %></span>
         </li>
       </ul>
     </div>
