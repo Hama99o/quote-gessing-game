@@ -11,6 +11,9 @@ AllCops:
   - 'app/controllers/**/*'
   - 'app/service/**/*'
   - 'spec/controllers/**/*'
+  - 'spec/views/**/*'
+  - 'spec/routes/**/*'
+  - 'spec/models/**/*'
   # - '**/*.rb'
   # - '**/*.gemfile'
   # - '**/*.gemspec'
@@ -32,3 +35,10 @@ Lint/EmptyFile:
   Enabled: false
 Metrics/BlockLength:
   Enabled: false
+Layout/FirstHashElementIndentation:
+  Enabled: false
+Layout/LineLength:
+  Enabled: false
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+  

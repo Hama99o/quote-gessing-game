@@ -6,12 +6,12 @@
 
       <div class="field my-3 responsive-text">
         <%= f.label :name, for: "exampleInputName1" %><br />
-        <%= f.text_field :name, autocomplete: "name",  class: "form-control responsive-text", id: "exampleInputName", ariaDescribedby: "nameHelp", placeholder: "Enter your Name" %>
+        <%= f.text_field :name, autocomplete: "name", autofocus: true,  class: "form-control responsive-text", id: "exampleInputName", ariaDescribedby: "nameHelp", placeholder: "Enter your Name" %>
       </div>
 
       <div class="field my-3 responsive-text">
         <%= f.label :email, for: "exampleInputEmail1" %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: "form-control responsive-text", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
+        <%= f.email_field :email, autocomplete: "email",  class: "form-control responsive-text", id: "exampleInputEmail1", ariaDescribedby: "emailHelp", placeholder: "Enter email" %>
       </div>
 
       <div class="field my-3 responsive-text">
@@ -28,7 +28,7 @@
       </div>
 
       <div class="actions my-3 ">
-        <%= f.submit "Sign up", class: "btn btn-primary responsive-text" %>
+        <%= f.submit "Sign up", class: "btn btn-primary responsive-text", id: 'save_user' %>
       </div>
     <% end %>
   </div>

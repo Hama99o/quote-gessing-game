@@ -1,0 +1,13 @@
+<div class="container">
+  <h1 class="display-3 responsive-text">Hello, <%= user_signed_in? ? current_user.name : 'world!'%></h1>
+  <h3 class="responsive-text wellcome-text">Thank you for coming to our site. Enjoy your quote guessing game.</h3>
+
+  <% if !user_signed_in? %>
+    <p>Don't forget to sign up</p>
+  <% end %>
+  <div class="row align-items-center">
+    <%= link_to games_path, class: 'btn btn-primary btn-lg btn-block btn-huge responsive-text' do %>
+      <i class="fas fa-gamepad"></i> Play Now
+    <% end %>
+  </div>
+</div>

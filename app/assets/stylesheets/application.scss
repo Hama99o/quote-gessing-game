@@ -21,17 +21,11 @@
    .responsive-text {
     font-size: 13px;
    }
-   .hidden-footer {
-        display: none;
-   }
  }
 
  @media only screen and (max-width: 900px) {
    .responsive-text {
     font-size: 15px;
-   }
-   .hidden-footer {
-        display: none;
    }
  }
 
@@ -39,9 +33,6 @@
  @media only screen and (max-width: 390px) {
    .responsive-text {
     font-size: 10px;
-   }
-   .hidden-footer {
-        display: none;
    }
  }
 
@@ -100,3 +91,25 @@
  .fixed-hf .main{
    overflow-y: auto;
  }
+ .btn-huge{
+     padding-top:20px;
+     padding-bottom:20px;
+ }
+
+body {
+	background: linear-gradient(-45deg, #87CEFA, #FFEFD5, #FFC0CB, #AFEEEE, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 9s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
