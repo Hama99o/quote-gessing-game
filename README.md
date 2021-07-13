@@ -38,6 +38,23 @@ bundle install
 ```sh
   rake db:migrate
 ```
+## set environment variables
+
+```sh
+  gedit ~/.bashrc
+```
+put these variables in the bashrc
+
+```sh
+export QUOTE_API_URL=https://quotes-from-all-over-the-world.herokuapp.com
+```
+```sh
+export ADMAN_EMAIL=your email for reseting your forget password
+```
+```sh
+export ADMAN_PASSWORD=your paswword
+```
+
 ## Install webpacker
 ```sh
   bundle exec rake webpacker:instal

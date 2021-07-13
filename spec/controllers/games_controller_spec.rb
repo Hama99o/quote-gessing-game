@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe GamesController, type: :controller do
-  
+
   before do
     allow_any_instance_of(QuoteApi).to receive(:random_quote_with_fake_authors).and_return({
       :fake_authors=>["Edward Witten", "Henry Moore"],
@@ -22,15 +22,11 @@ RSpec.describe GamesController, type: :controller do
       game
       user
     end
+    subject { get :play }
 
-    it 'assigns @game' do
-      get :home
-      expect(response).to have_http_status(:ok)
-    end
-
-    # it "assigns @game" do
-    #   @game ||= Game.generate_game(user)
-    #   get :profile
+    # it 'assigns @game' do
+    #   subject
+    #   p response
     #   expect(response).to have_http_status(:ok)
     # end
   end
