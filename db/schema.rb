@@ -35,14 +35,6 @@ ActiveRecord::Schema.define(version: 2021_07_01_094209) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "quotes", force: :cascade do |t|
-    t.string "quotes"
-    t.string "author"
-    t.string "category"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
