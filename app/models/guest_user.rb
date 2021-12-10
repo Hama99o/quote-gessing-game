@@ -13,7 +13,7 @@ class GuestUser < ApplicationRecord
     'guest'
   end
 
-  def  email
+  def email
     'guest@game.com'
   end
 end
