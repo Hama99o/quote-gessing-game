@@ -1,6 +1,5 @@
 class GuestUser < ApplicationRecord
   include Person
-
   has_many :games, as: :person
 
   def self.generate_guest_user
