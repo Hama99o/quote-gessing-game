@@ -20,7 +20,6 @@ class GamesController < ApplicationController
     @page_title = 'Profile'
   end
 
-  # PATCH/PUT /games/1 or /games/1.json
   def update
     respond_to do |format|
       @game.update(game_params)
