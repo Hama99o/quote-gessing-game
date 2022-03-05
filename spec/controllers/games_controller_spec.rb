@@ -23,11 +23,5 @@ RSpec.describe GamesController, type: :controller do
       user
     end
     subject { get :play }
-
-    # it 'assigns @game' do
-    #   subject
-    #   p response
-    #   expect(response).to have_http_status(:ok)
-    # end
   end
 end
